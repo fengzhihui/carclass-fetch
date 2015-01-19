@@ -24,12 +24,6 @@ var CarData = require('./data/cardata');
 //mongoose.connect('mongodb://localhost/movie');
 mongoose.connect('mongodb://root:root@192.168.168.108:27017/cheguanwang');
 var db = mongoose.connection;
-/*var db  = mongoose.createConnection("mongodb://182.92.7.225:20000/cheguanwang", {
-    replset: {rs_name: 'cheguanwang'},
-    user: 'cheguanwang',
-    pass: 'cheguanwang',
-    connectTimeoutMS: 20000
-});*/
 db.on('error', console.error.bind(console, 'mongodb connection error ...'));
 db.once('open', function callback() {
     console.info("mongodb opened ...");
@@ -68,6 +62,7 @@ var savePpCarClass = function (data, cb) {
     var _PpCarClass = new CarClass({
         name: data.name,
         initial: data.bfirstletter,
+        level: 1,
         //logo: '',//'http://car0.autoimg.cn/logo/brand/100/130131578038733348.jpg',
         status: 1
     });
@@ -83,6 +78,7 @@ var saveXlCarClass = function (data, category, ppid, cb) {
         manufacturer: category,
         name: data.name,
         initial: data.firstletter,
+        level: 2,
         //logo: 'http://car0.autoimg.cn/logo/brand/100/130131578038733348.jpg',
         status: 1
     });
@@ -97,6 +93,7 @@ var saveXhCarClass = function (data, category, ppids, cb) {
         ppath: ppids,
         manufacturer: category,
         name: data.name,
+        level: 3,
         //logo: 'http://car0.autoimg.cn/logo/brand/100/130131578038733348.jpg',
         status: data.state == 40 ? 0 : 1
     });
@@ -174,10 +171,6 @@ app.get('/test/logo', function (req, res) {
     });
 });
 
-app.get('/carclass/update/pplogo', function (req, res) {
-
-});
-
 //更新logo入库
 app.get('/carclass/update/logo', function (req, res) {
     //var q = CarClass.find({pid: null}).sort('initial').limit(1).lean();
@@ -199,4 +192,17 @@ app.get('/carclass/update/logo', function (req, res) {
         }
         res.json(ppCarClassArr)
     });
+});
+
+app.get('/carclass/remove/empty/logo', function (req, res) {
+    CarClass.find({logo: null}).remove(function () {
+        console.log('removed!')
+    });
+    CarClass.find({pid: null, logo: null}, function (err, list) {
+        res.json(list);
+    });
+});
+
+app.get('/', function (req, res) {
+    res.render('fetchdata')
 });

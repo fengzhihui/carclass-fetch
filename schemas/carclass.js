@@ -11,7 +11,9 @@ var CarClassSchema = new mongoose.Schema({
     status: {type: Number, default: 1},//1-正常-1删除
     createTime: {type: Number},
     updateTime: {type: Number}
-}, {collection: 'carclass'});
+});//, {collection: 'carclass'}
+CarClassSchema.index({status: 1, pid: 1});
+CarClassSchema.index({ppath: 1});
 
 /**
  * 每次存储数据save之前调用

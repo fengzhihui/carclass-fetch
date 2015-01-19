@@ -19,6 +19,8 @@
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "^0.3.0",
+    "iconv": "^2.1.4",
+    "iconv-lite": "^0.4.6",
     "request": "^2.51.0"
   },
   "scripts": {

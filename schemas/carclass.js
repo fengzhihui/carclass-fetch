@@ -22,7 +22,8 @@ CarClassSchema.pre('save', function (next) {
         this.updateTime = this.updateTime = Date.now()
     } else {
         this.meta.updateAt = Date.now()
-    };
+    }
+    ;
     next();
 })
 

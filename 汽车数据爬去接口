@@ -1,0 +1,73 @@
+汽车接口
+
+http://www.autohome.com.cn/
+
+//品牌信息
+http://www.autohome.com.cn/ashx/AjaxIndexCarFind.ashx?type=1
+
+//车系
+http://www.autohome.com.cn/ashx/AjaxIndexCarFind.ashx?type=3&value=34
+
+//汽车信息
+http://www.autohome.com.cn/ashx/AjaxIndexCarFind.ashx?type=5&value=179
+
+//车辆信息(LOGO)
+http://data.auto.qq.com/car_brand/index.shtml#____
+
+
+
+//nodejs 网页爬虫
+http://www.baidu.com/s?ie=UTF-8&wd=nodejs%20%E7%BD%91%E9%A1%B5%E7%88%AC%E8%99%AB
+
+
+车型信息
+status: 40 停售,20 在售
+
+
+cheerio
+
+1.汽车详情页: bootstrap + jquery
+
+//数据存储格式
+/* 0 */
+{
+  "_id" : ObjectId("54bb6efe962ba93bfcbc15fb"),
+  "name" : "大众",
+  "initial" : "D",
+  "status" : 1,
+  "createTime" : NumberLong("1421569774874"),
+  "updateTime" : NumberLong("1421569774874")
+}
+
+/* 1 品牌*/
+{
+  "_id" : ObjectId("54bb6f62962ba93bfcbc15fc"),
+  "pid" : ObjectId("54bb6efe962ba93bfcbc15fb"),
+  "manufacturer" : "上海大众",
+  "name" : "桑塔纳",
+  "initial" : "S",
+  "status" : 1,
+  "createTime" : NumberLong("1421569774874"),
+  "updateTime" : NumberLong("1421569774874")
+}
+
+/* 2　系列 */
+{
+  "_id" : ObjectId("54bb6fc2962ba93bfcbc15fd"),
+  "pid" : ObjectId("54bb6f62962ba93bfcbc15fc"),
+  "manufacturer" : "2015款",
+  "name" : "2015款 1.4L 手动风尚版",
+  "status" : 1,
+  "createTime" : NumberLong("1421569774874"),
+  "updateTime" : NumberLong("1421569774874")
+}
+
+/* 3　车型 */
+{
+  "_id" : ObjectId("54bbcd34962ba902d013a203"),
+  "name" : "奔驰",
+  "initial" : "B",
+  "status" : 1,
+  "createTime" : NumberLong("1421569774874"),
+  "updateTime" : NumberLong("1421569774874")
+}

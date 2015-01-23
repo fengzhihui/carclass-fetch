@@ -95,7 +95,7 @@ var saveXhCarClass = function (data, category, ppids, cb) {
         name: data.name,
         level: 3,
         //logo: 'http://car0.autoimg.cn/logo/brand/100/130131578038733348.jpg',
-        status: data.state == 40 ? 0 : 1
+        status: data.state == 40 ? 0 : 1//20 在售, 40 停售
     });
     _xhCarClass.save(function (err, xhCarClass) {
         cb(xhCarClass);

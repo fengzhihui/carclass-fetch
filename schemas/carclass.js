@@ -8,7 +8,7 @@ var CarClassSchema = new mongoose.Schema({
     logo: {type: String},//logo
     initial: {type: String},//首字母
     manufacturer: {type: String},//生产厂商
-    status: {type: Number, default: 1},//1-正常-1删除
+    status: {type: Number, default: 1},//1-正常-0删除
     createTime: {type: Number},
     updateTime: {type: Number}
 });//, {collection: 'carclass'}
